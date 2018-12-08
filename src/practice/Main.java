@@ -12,7 +12,7 @@ public class Main {
 		String b = "kingmbc";
 		m.convertValue(a);
 		m.convertValue(b);
-		
+
 	}
 	public void convertValue(Object value){
 		if(value instanceof String){
@@ -28,26 +28,26 @@ public class Main {
 		Date now = new Date(System.currentTimeMillis());
 		System.out.println("1.1: " + now.getTime());
 		System.out.println("1.2: " + now);
-		
-		TimeZone kst = TimeZone.getTimeZone("Asia/Seoul");
-        Calendar calendar = Calendar.getInstance(kst);
-        Date time = calendar.getTime();
-        System.out.println("2.1: " + time.getTime());
-        System.out.println("2.2: " + time);
-        
-    	final String DB_DATE_FORMAT = "yyyyMMddHHmmss.SSS";		//DB 안에서 Decimal(17,3) Format. Millisecond는 따로 존재
-    	SimpleDateFormat DB_FORMATTER = new SimpleDateFormat(DB_DATE_FORMAT);
 
-        String currentTime = DB_FORMATTER.format(calendar.getTime());
-        
-        String TESTBED_DB_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";		//TESTBED 용
-    	SimpleDateFormat TESTBED_DB_FORMATTER = new SimpleDateFormat(TESTBED_DB_DATE_FORMAT);
-    	Date ddd = new Date(Long.valueOf("1480560461422"));
-    	System.out.println(TESTBED_DB_FORMATTER.format(ddd));
-    	
-        System.out.println(currentTime);
+		TimeZone kst = TimeZone.getTimeZone("Asia/Seoul");
+		Calendar calendar = Calendar.getInstance(kst);
+		Date time = calendar.getTime();
+		System.out.println("2.1: " + time.getTime());
+		System.out.println("2.2: " + time);
+
+		final String DB_DATE_FORMAT = "yyyyMMddHHmmss.SSS";		//DB 안에서 Decimal(17,3) Format. Millisecond는 따로 존재
+		SimpleDateFormat DB_FORMATTER = new SimpleDateFormat(DB_DATE_FORMAT);
+
+		String currentTime = DB_FORMATTER.format(calendar.getTime());
+
+		String TESTBED_DB_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";		//TESTBED 용
+		SimpleDateFormat TESTBED_DB_FORMATTER = new SimpleDateFormat(TESTBED_DB_DATE_FORMAT);
+		Date ddd = new Date(Long.valueOf("1480560461422"));
+		System.out.println(TESTBED_DB_FORMATTER.format(ddd));
+
+		System.out.println(currentTime);
 		return (x = 1) + (x = 2);
-		
+
 
 	}
 }
