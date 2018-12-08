@@ -1,3 +1,4 @@
+package practice;
 import java.util.function.Consumer;
 
 public class Resource {
