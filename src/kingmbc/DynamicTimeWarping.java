@@ -1,4 +1,4 @@
-package practice;
+package kingmbc;
 import java.lang.management.ManagementFactory;
 import java.util.List;
 

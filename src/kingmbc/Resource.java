@@ -1,4 +1,4 @@
-package practice;
+package kingmbc;
 import java.util.function.Consumer;
 
 public class Resource {

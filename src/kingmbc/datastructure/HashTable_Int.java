@@ -1,4 +1,4 @@
-package practice.datastructure;
+package kingmbc.datastructure;
 
 /**
  * @description Hashtable implementation based on Close-addressing (i.e., chaining)
@@ -7,10 +7,10 @@ package practice.datastructure;
  * 
  *  @see http://www.algolist.net/Data_structures/Hash_table/Chaining
  */
-public class Hashtable {
+public class HashTable_Int {
 	public static void main(String args[]) {
 		int HASH_TABLE_SIZE = 10007;	//소수
-		Hashtable tb = new Hashtable(HASH_TABLE_SIZE);
+		HashTable_Int tb = new HashTable_Int(HASH_TABLE_SIZE);
 		tb.putValueByKey(1, 1);
 		tb.putValueByKey(1, 2);
 		tb.putValueByKey(1, 3);
@@ -28,7 +28,7 @@ public class Hashtable {
 	int hashTableSize = 0;
 	LinkedHashEntry[] table = null;
 	
-	public Hashtable(int size) {
+	public HashTable_Int(int size) {
 		hashTableSize = size;
 		table = new LinkedHashEntry[size];
 	}

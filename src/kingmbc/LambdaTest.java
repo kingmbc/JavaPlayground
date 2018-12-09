@@ -1,4 +1,4 @@
-package practice;
+package kingmbc;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package practice;
+package kingmbc;
 /**
  * @author Taehun Kim (iDBLab, kingmbc@gmail.com)
  * @date 2016.11.17	
