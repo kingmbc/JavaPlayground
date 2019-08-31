@@ -3,7 +3,6 @@ package _kingmbc.datastructure;
 public class LinkedList_Single_DummyHead {
 	class Node{
 		Object data;
-		Node prev;
 		Node next;
 		public Node(Object d) {
 			data = d;

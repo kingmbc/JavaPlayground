@@ -1,6 +1,6 @@
-package _kingmbc.algorithm;
+package swexpert;
 
-public class Bucket {
+public class HotPaper {
 	//Bucket을 써서 탐색 범위를 앞과 뒤만 보도록
 	Timestamp[] timestampIdx = new Timestamp[100];
 	
@@ -30,7 +30,7 @@ public class Bucket {
 		}
 	}
 	public void hasInterest(int professorId1, int professorId2) {
-		
+		professor_relation[professorId1][professorId2] = 1;		
 	}
 	public void citation(int paperId, int timestamp) {
 		

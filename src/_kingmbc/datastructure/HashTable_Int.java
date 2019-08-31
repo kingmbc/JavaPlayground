@@ -26,11 +26,11 @@ public class HashTable_Int {
 	 ****************************************************************/
 	static int hash = 5387;
 	int hashTableSize = 0;
-	LinkedHashEntry[] table = null;
+	Node[] hashTable = null;
 	
 	public HashTable_Int(int size) {
 		hashTableSize = size;
-		table = new LinkedHashEntry[size];
+		hashTable = new Node[size];
 	}
 	/**
 	 * 그냥 막짬
@@ -54,10 +54,10 @@ public class HashTable_Int {
 	 */
 	public void putValueByKey(int key, int value) {
 		int hash = hashing(key);
-		if(table[hash] == null) {
-			table[hash] = new LinkedHashEntry(key, value);
+		if(hashTable[hash] == null) {
+			hashTable[hash] = new Node(key, value);
 		}else {
-			LinkedHashEntry entry = table[hash];
+			Node entry = hashTable[hash];
 			//entry의 Next가 있고, 그리고 찾고자 하는 key가 아니면 다음으로 계속 넘김
 			//즉, entry가 null이거나, getKey가 있으면 멈춤
 			while(entry.getNext() != null && entry.getKey() != key) {
@@ -66,14 +66,14 @@ public class HashTable_Int {
 			if(entry.getKey() == key)
 				entry.setValue(value);
 			else 	//마지막 배열에 붙임
-				entry.setNext(new LinkedHashEntry(key, value));
+				entry.setNext(new Node(key, value));
 		}
 	}
 	public int getValue(int key) {
 		int result = 0;
 		
 		int hash = hashing(key);
-		LinkedHashEntry entry = table[hash];
+		Node entry = hashTable[hash];
 		if(entry == null)
 			return Integer.MIN_VALUE;
 		else {
@@ -88,19 +88,19 @@ public class HashTable_Int {
 	}
 	public boolean removeByKey(int key) {
 		int h = hashing(key);
-		if(table[h] == null) {
+		if(hashTable[h] == null) {
 			System.out.println("[1]There is no entry for the key");
 			return false;
 		}else {
-			LinkedHashEntry entry = table[h];
-			LinkedHashEntry prevEntry = null;
+			Node entry = hashTable[h];
+			Node prevEntry = null;
 			while(entry.getNext() != null && entry.getKey() != key) {
 				prevEntry = entry;
 				entry = entry.getNext();
 			}
 			if(entry.getKey() == key) {
 				if(prevEntry == null)
-					table[hash] = entry.getNext();
+					hashTable[hash] = entry.getNext();
 				else
 					prevEntry.setNext(entry.getNext());
 			}else {
@@ -111,12 +111,12 @@ public class HashTable_Int {
 		return true;
 	}
 	
-	class LinkedHashEntry{
+	class Node{
 		int key;
 		int value;
-		LinkedHashEntry next;
+		Node next;
 		
-		public LinkedHashEntry(int key, int value) {
+		public Node(int key, int value) {
 			this.key = key;
 			this.value = value;
 		}
@@ -132,10 +132,10 @@ public class HashTable_Int {
 		public void setValue(int value) {
 			this.value = value;
 		}
-		public void setNext(LinkedHashEntry next) {
+		public void setNext(Node next) {
 			this.next = next;
 		}
-		public LinkedHashEntry getNext() {
+		public Node getNext() {
 			return next;
 		}
 		
