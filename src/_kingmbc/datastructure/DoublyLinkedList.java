@@ -1,19 +1,19 @@
+package _kingmbc.datastructure;
 
 public class DoublyLinkedList {
 	public static void main(String[] args) {
 		DoublyLinkedList a = new DoublyLinkedList();
+		DoublyLinkedList b = new DoublyLinkedList();
 		int TEST_N = 10;
 		for (int i = 0; i < TEST_N; i++) {
 			int val = i;
 			//insert val to list
-			a.append(val);
+			a.append_in_tail(val);
+			b.append_in_head(val);
 		}
 
-		Node ptr = a.head.next;
-		while (ptr != a.tail) {
-			System.out.println(ptr.val);
-			ptr = ptr.next;
-		}
+		a.print();
+		b.print();
 
 		System.out.println("\n\n\n");
 
@@ -21,15 +21,13 @@ public class DoublyLinkedList {
 			int val = i;
 			//delete val from list
 			a.del(val);
+			b.del(val);
 		}
 
 
 		//print all elements in list
-		ptr = a.head.next;
-		while (ptr != a.tail) {
-			System.out.println(ptr.val);
-			ptr = ptr.next;
-		}
+		a.print();
+		b.print();
 	}
 	class Node{
 		Node next;
@@ -62,8 +60,19 @@ public class DoublyLinkedList {
 		tail.prev = head;
 		System.out.println();
 	}
+	
+	void append_in_head(int val) {
+		Node n = newNode();
+		n.val = val;
+		
+		head.next.prev = n;
+		n.next = head.next;
+		
+		head.next = n;
+		n.prev = head;
+	}
 
-	void append(int val) {
+	void append_in_tail(int val) {
 		Node n = newNode();
 		n.val = val;
 
@@ -85,6 +94,12 @@ public class DoublyLinkedList {
 				ptr = ptr.prev;
 			}
 			ptr = ptr.next;
+		}
+	}
+	void print(){
+		for(Node ptr = head.next; ptr != tail; ptr = ptr.next){
+			System.out.print(ptr.val);
+			System.out.print("-");
 		}
 	}
 }
