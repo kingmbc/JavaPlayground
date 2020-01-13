@@ -1,6 +1,6 @@
 package _kingmbc.datastructure;
 
-public class LinkedList_Double_RealHead_NodePool {
+public class DoubleLinkedList_RealHead_NodePool {
 
 	Node[] nodePool = new Node[1000000];
 	int nodeCnt = 0;

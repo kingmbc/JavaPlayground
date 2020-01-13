@@ -1,6 +1,6 @@
 package _kingmbc.datastructure;
 
-public class LinkedList_Single_DummyHead {
+public class SingleLinkedList_DummyHead_Object {
 	class Node{
 		Object data;
 		Node next;
@@ -37,7 +37,7 @@ public class LinkedList_Single_DummyHead {
 	}
 	
 	public static void main(String args[]) {
-		LinkedList_Single_DummyHead ldh = new LinkedList_Single_DummyHead();
+		SingleLinkedList_DummyHead_Object ldh = new SingleLinkedList_DummyHead_Object();
 		ldh.addFirst(new Integer(1));
 		ldh.addFirst(new Integer(2));
 		ldh.addFirst(new Integer(3));

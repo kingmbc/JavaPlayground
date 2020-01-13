@@ -1,32 +1,30 @@
 package _kingmbc.datastructure;
 
-public class DoublyLinkedList {
+public class DoublyLinkedList_DummyHead {
 	public static void main(String[] args) {
-		DoublyLinkedList a = new DoublyLinkedList();
-		DoublyLinkedList b = new DoublyLinkedList();
+		DoublyLinkedList_DummyHead a = new DoublyLinkedList_DummyHead();
+		DoublyLinkedList_DummyHead b = new DoublyLinkedList_DummyHead();
 		int TEST_N = 10;
 		for (int i = 0; i < TEST_N; i++) {
-			int val = i;
 			//insert val to list
-			a.append_in_tail(val);
-			b.append_in_head(val);
+			a.appendInTail(i);
+			b.appendInHead(i);
 		}
 
 		a.print();
+		System.out.println();
 		b.print();
-
-		System.out.println("\n\n\n");
+		System.out.println();
 
 		for (int i = 0; i < TEST_N; i += 2) {
-			int val = i;
 			//delete val from list
-			a.del(val);
-			b.del(val);
+			a.del(i);
+			b.del(i);
 		}
-
 
 		//print all elements in list
 		a.print();
+		System.out.println();
 		b.print();
 	}
 	class Node{
@@ -49,7 +47,7 @@ public class DoublyLinkedList {
 	//implement here
 	Node head;
 	Node tail;
-	DoublyLinkedList() {
+	DoublyLinkedList_DummyHead() {
 		for(int i = 0; i < 10001; i++)
 			nodePool[i] = new Node();
 		
@@ -61,18 +59,18 @@ public class DoublyLinkedList {
 		System.out.println();
 	}
 	
-	void append_in_head(int val) {
+	void appendInHead(int val) {
 		Node n = newNode();
 		n.val = val;
-		
+
 		head.next.prev = n;
 		n.next = head.next;
-		
+
 		head.next = n;
 		n.prev = head;
 	}
 
-	void append_in_tail(int val) {
+	void appendInTail(int val) {
 		Node n = newNode();
 		n.val = val;
 

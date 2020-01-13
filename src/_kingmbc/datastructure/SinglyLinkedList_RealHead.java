@@ -2,7 +2,7 @@ package _kingmbc.datastructure;
 
 //A complete working Java program to demonstrate all insertion methods 
 //on linked list 
-class SinglyLinkedList 
+class SinglyLinkedList_RealHead
 { 
 	Node head; // head of list 
 
@@ -126,7 +126,7 @@ class SinglyLinkedList
 	public static void main(String[] args) 
 	{ 
 		/* Start with the empty list */
-		SinglyLinkedList llist = new SinglyLinkedList(); 
+		SinglyLinkedList_RealHead llist = new SinglyLinkedList_RealHead();
 
 		// Insert 6. So linked list becomes 6->NUllist 
 		llist.append(6); 
