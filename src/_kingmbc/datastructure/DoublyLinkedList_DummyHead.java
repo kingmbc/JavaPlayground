@@ -18,8 +18,8 @@ public class DoublyLinkedList_DummyHead {
 
 		for (int i = 0; i < TEST_N; i += 2) {
 			//delete val from list
-			a.del(i);
-			b.del(i);
+			a.delUsingWhile(i);
+			b.delUsingWhile(i);
 		}
 
 		//print all elements in list
@@ -59,9 +59,9 @@ public class DoublyLinkedList_DummyHead {
 		System.out.println();
 	}
 	
-	void appendInHead(int val) {
+	void appendInHead(int v) {
 		Node n = newNode();
-		n.val = val;
+		n.val = v;
 
 		head.next.prev = n;
 		n.next = head.next;
@@ -70,9 +70,9 @@ public class DoublyLinkedList_DummyHead {
 		n.prev = head;
 	}
 
-	void appendInTail(int val) {
+	void appendInTail(int v) {
 		Node n = newNode();
-		n.val = val;
+		n.val = v;
 
 		tail.prev.next = n;
 		n.prev = tail.prev;
@@ -81,17 +81,27 @@ public class DoublyLinkedList_DummyHead {
 		n.next = tail;
 	}
 	
-	void del(int val) {
+	void delUsingWhile(int v) {
 		Node ptr = head.next;
 		
 		while(ptr != tail) {
-			if(ptr.val == val) {
+			if(ptr.val == v) {
 				ptr.next.prev = ptr.prev;
 				ptr.prev.next = ptr.next;
 				
 				ptr = ptr.prev;
 			}
 			ptr = ptr.next;
+		}
+	}
+	void delUsingFor(int v){
+		for(Node ptr = head.next; ptr != tail; ptr = ptr.next){
+			if(ptr.val == v){
+				ptr.prev.next = ptr.next;
+				ptr.next.prev = ptr.prev;
+
+				ptr = ptr.prev;
+			}
 		}
 	}
 	void print(){
